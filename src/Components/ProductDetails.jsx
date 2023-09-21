@@ -13,15 +13,8 @@ function ProductDetails() {
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl, { headers });
-        const productData=response.data.data.product
-        if (productData) {
-          console.log(productData);
-          setProducts(productData);
-        } else {
-          console.error("Product data not found in API response");
-        }
-        // console.log(response.data.data.product);
-        // setProducts(response.data.data.product);
+        console.log(response.data.data.product);
+        setProducts(response.data.data.product);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
