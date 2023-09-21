@@ -3,11 +3,11 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <footer className="bg-gray-900 mt-10 text-white w-full">
+      <footer className="bg-gray-900 mt-10 text-white w-full ">
         <div className="container  mx-auto py-10 px-8">
           <div className="flex flex-col md:flex-row md:justify-between">
             <div className="mb-4 md:mb-0 ">
-              <h2 className="text-xl font-semibold">intertoons</h2>
+              <h2 className="text-xl font-semibold">Intertoons</h2>
               <p className="mt-2">
                 A place for insightful articles and thoughts.
               </p>

@@ -6,15 +6,22 @@ function ProductDetails() {
   const [products, setProducts] = useState(null);
   const { addToCart } = useCart();
   useEffect(() => {
-    const apiUrl = `http://fda.intertoons.com/api/V1/product/59`;
+    const apiUrl = `http://fda.intertoons.com/api/V1/product/73`;
     const headers = {
       Authorization: "Bearer akhil@intertoons.com",
     };
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl, { headers });
-        console.log(response.data.data.product);
-        setProducts(response.data.data.product);
+        const productData=response.data.data.product
+        if (productData) {
+          console.log(productData);
+          setProducts(productData);
+        } else {
+          console.error("Product data not found in API response");
+        }
+        // console.log(response.data.data.product);
+        // setProducts(response.data.data.product);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }

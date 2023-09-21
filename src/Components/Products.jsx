@@ -4,7 +4,7 @@ import ProductCard from "./ProductCards";
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +20,7 @@ function Products() {
             field: "menu_name",
             direction: "desc",
           },
-          searchstring: searchTerm,
+          searchstring: searchItem,
           filter: {
             category: "",
           },
@@ -33,10 +33,10 @@ function Products() {
       }
     };
     fetchData();
-  }, [searchTerm]); 
+  }, [searchItem]); 
 
   const handleSearchInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchItem(e.target.value);
   };
 
   return (
@@ -50,7 +50,7 @@ function Products() {
             type="text"
             placeholder="Search by product name"
             className="px-4 py-2 border rounded-lg"
-            value={searchTerm}
+            value={searchItem}
             onChange={handleSearchInputChange}
           />
         </div>
