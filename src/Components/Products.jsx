@@ -9,9 +9,9 @@ function Products() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = "http://fda.intertoons.com/api/V1/products";
+        const apiUrl = "http://caffa.smsoman.com/api/V1/products";
         const headers = {
-          Authorization: "Bearer akhil@intertoons.com",
+          Authorization: "Bearer EqzC2SPUcFRrrJKKL4ngAGAnZDIN8ZLS",
         };
         const requestData = {
           currentpage: 1,
@@ -26,8 +26,9 @@ function Products() {
           },
         };
         const response = await axios.post(apiUrl, requestData, { headers });
-        console.log(response.data.data.products)
-        setProducts(response.data.data.products);
+        const productData=response.data.data.products
+        console.log(productData)
+        setProducts(productData);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

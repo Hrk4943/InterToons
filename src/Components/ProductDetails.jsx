@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "../Helpers/Contex";
+import { useParams } from "react-router-dom"; 
 import axios from "axios";
 
 function ProductDetails() {
   const [products, setProducts] = useState(null);
+  const { id } = useParams();
   const { addToCart } = useCart();
   useEffect(() => {
-    const apiUrl = `http://fda.intertoons.com/api/V1/product/73`;
+    const apiUrl = `http://caffa.smsoman.com/api/V1/product/${id}`;
     const headers = {
-      Authorization: "Bearer akhil@intertoons.com",
+      Authorization: "Bearer EqzC2SPUcFRrrJKKL4ngAGAnZDIN8ZLS",
     };
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl, { headers });
-        console.log(response.data.data.product);
-        setProducts(response.data.data.product);
+        const productData=response.data.data.product
+        console.log(productData);
+        setProducts(productData);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
