@@ -9,7 +9,6 @@ function ProductDetails() {
   const { addToCart } = useCart();
   useEffect(() => {
     const token = import.meta.env.VITE_KEY_TOKEN
-    console.log(token,"22222222222")
     const apiUrl = `http://caffa.smsoman.com/api/V1/product/${id}`;
     const headers = {
       Authorization: token,
@@ -18,7 +17,6 @@ function ProductDetails() {
       try {
         const response = await axios.get(apiUrl, { headers });
         const productData=response.data.data.product
-        console.log(productData);
         setProducts(productData);
       } catch (error) {
         console.error("Error fetching product details:", error);

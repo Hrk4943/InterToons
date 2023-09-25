@@ -8,7 +8,6 @@ function Products() {
 
   useEffect(() => {
     const token = import.meta.env.VITE_KEY_TOKEN;
-    console.log(token,"8888888888")
     const fetchData = async () => {
       try {
         const apiUrl = "http://caffa.smsoman.com/api/V1/products";
@@ -29,7 +28,6 @@ function Products() {
         };
         const response = await axios.post(apiUrl, requestData, { headers });
         const productData = response.data.data.products;
-        console.log(productData);
         setProducts(productData);
       } catch (error) {
         console.error("Error fetching products:", error);
