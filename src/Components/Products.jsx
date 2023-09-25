@@ -7,11 +7,13 @@ function Products() {
   const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
+    const token = import.meta.env.VITE_KEY_TOKEN;
+    console.log(token,"8888888888")
     const fetchData = async () => {
       try {
         const apiUrl = "http://caffa.smsoman.com/api/V1/products";
         const headers = {
-          Authorization: "Bearer EqzC2SPUcFRrrJKKL4ngAGAnZDIN8ZLS",
+          Authorization: token,
         };
         const requestData = {
           currentpage: 1,
@@ -26,15 +28,15 @@ function Products() {
           },
         };
         const response = await axios.post(apiUrl, requestData, { headers });
-        const productData=response.data.data.products
-        console.log(productData)
+        const productData = response.data.data.products;
+        console.log(productData);
         setProducts(productData);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
     fetchData();
-  }, [searchItem]); 
+  }, [searchItem]);
 
   const handleSearchInputChange = (e) => {
     setSearchItem(e.target.value);

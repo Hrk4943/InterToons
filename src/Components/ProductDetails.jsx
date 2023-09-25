@@ -8,9 +8,11 @@ function ProductDetails() {
   const { id } = useParams();
   const { addToCart } = useCart();
   useEffect(() => {
+    const token = import.meta.env.VITE_KEY_TOKEN
+    console.log(token,"22222222222")
     const apiUrl = `http://caffa.smsoman.com/api/V1/product/${id}`;
     const headers = {
-      Authorization: "Bearer EqzC2SPUcFRrrJKKL4ngAGAnZDIN8ZLS",
+      Authorization: token,
     };
     const fetchData = async () => {
       try {
