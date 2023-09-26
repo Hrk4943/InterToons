@@ -10,7 +10,7 @@ function Products() {
     const token = import.meta.env.VITE_KEY_TOKEN;
     const fetchData = async () => {
       try {
-        const apiUrl = "http://caffa.smsoman.com/api/V1/products";
+        const apiUrl = "https://caffa.smsoman.com/api/V1/products";
         const headers = {
           Authorization: token,
         };

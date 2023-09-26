@@ -9,7 +9,7 @@ function ProductDetails() {
   const { addToCart } = useCart();
   useEffect(() => {
     const token = import.meta.env.VITE_KEY_TOKEN
-    const apiUrl = `http://caffa.smsoman.com/api/V1/product/${id}`;
+    const apiUrl = `https://caffa.smsoman.com/api/V1/product/${id}`;
     const headers = {
       Authorization: token,
     };
